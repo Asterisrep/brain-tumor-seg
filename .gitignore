@@ -1,0 +1,13 @@
+cat > .gitignore << 'EOF'
+data/
+*.nii.gz
+*.nii
+wandb/
+checkpoints/
+*.pt
+*.pth
+__pycache__/
+.ipynb_checkpoints/
+*.egg-info/
+.vscode/
+EOF
