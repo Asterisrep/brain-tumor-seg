@@ -24,11 +24,16 @@ def load_split(split_path):
     return json.loads(Path(split_path).read_text())
 
 
-def build_dataset(data_dir, split_path, subset, cache_dir=None, transform=None):
+def build_dataset(data_dir, split_path, subset, cache_dir=None,
+                  transform=None, limit=None):
     """subset is 'train', 'val' or 'test'.
-    cache_dir=None -> processed on the fly; otherwise cached on disk."""
+    cache_dir=None -> processed on the fly; otherwise cached on disk.
+    limit=N        -> only the first N cases (for quick tests)."""
     cases = read_cases(data_dir)
-    data = [cases[name] for name in load_split(split_path)[subset]]
+    names = load_split(split_path)[subset]
+    if limit is not None:
+        names = names[:limit]
+    data = [cases[name] for name in names]
     transform = transform if transform is not None else build_preprocess()
     if cache_dir is not None:
         return PersistentDataset(data=data, transform=transform,

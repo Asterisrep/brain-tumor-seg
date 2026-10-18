@@ -1,0 +1,3 @@
+case,slice,edema,non_enh,enh,edema_in_gt,non_enh_in_gt,enh_in_gt
+BRATS_003.nii.gz,82,0.8567803502082825,0.20495378971099854,0.9141819477081299,True,True,True
+BRATS_018.nii.gz,77,0.6213831305503845,0.38118693232536316,0.11675223708152771,True,True,True

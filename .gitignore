@@ -10,4 +10,4 @@ __pycache__/
 .ipynb_checkpoints/
 *.egg-info/
 .vscode/
-EOF
+EOFresults/
